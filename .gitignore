@@ -4,4 +4,4 @@ log/*.log
 tmp/
 .idea/
 yes
-yes.pub
+*.pub
