@@ -1,0 +1,23 @@
+<%= hidden_field_tag :direction, params[:direction] %>
+<%= hidden_field_tag :sort, params[:sort] %>
+
+
+<table>
+  <tr>
+    <th class="thead">Name</th>
+    <th>Post</th>
+    <th>-1</th>
+    <th>Rate</th>
+    <th>+1</th>
+  </tr>
+
+<% @tankmen.each do |tankman| %>
+  <tr>
+    <td><%= link_to tankman.name, tankman %></td>
+    <td><%= link_to tankman.post.title, tankman.post %></td>
+    <td><%= link_to image_tag("b1.png", :size => '15x4'),{ :action => :decrement, :id => tankman.id}, :remote => true if auth %></td>
+    <td><%= tankman.rate %></td>
+    <td><%= link_to image_tag("b2.png", :size => '15x15'),{ :action => :increment, :id => tankman.id}, :remote => true if auth %></td>
+  </tr>
+<% end %>
+</table>

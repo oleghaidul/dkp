@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @post.title %>
+</p>
+
+<table>
+  <tr>
+    <th class="thead"><%= sortable "name" %></th>
+    <th><%= sortable "post" %></th>
+    <th>-1</th>
+    <th><%= sortable "rate" %></th>
+    <th>+1</th>
+  </tr>
+
+<% @tankman.each do |tankman| %>
+  <tr>
+    <td><%= link_to tankman.name, tankman %></td>
+    <td><%= link_to tankman.post.title, tankman.post %></td>
+
+    <td><%= link_to '-1', edit_tankman_path(tankman, :inc => "123") if auth %></td>
+    <td><%= tankman.rate %></td>
+    <td><%= link_to '+1', edit_tankman_path(tankman) if auth %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>

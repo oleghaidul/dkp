@@ -1,0 +1,2 @@
+module TankmenHelper
+end

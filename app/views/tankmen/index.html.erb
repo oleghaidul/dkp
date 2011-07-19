@@ -1,0 +1,10 @@
+<h1>Listing tankmen</h1>
+  <%= javascript_include_tag "pagination" %>
+  <%= form_tag tankmen_path, :method => 'get', :id => "tankmen_search" do %>
+    <%= text_field_tag :search %>
+    <div id="tankmen"><%= render 'tankmen' %></div>
+    <% end %>
+
+
+
+

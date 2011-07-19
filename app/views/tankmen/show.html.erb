@@ -1,0 +1,68 @@
+<p id="notice"><%= notice %></p>
+
+
+
+  <b>Name:</b>
+  <%= @tankman.name %>
+
+  <b>Rate:</b>
+  <%= @tankman.rate %>
+
+  <script type="text/javascript" charset="utf-8">
+  $(function() {
+    new Highcharts.Chart({
+      chart: {
+        renderTo: "orders_chart"
+      },
+      legend: {
+          layout: "vertical"
+      },
+      title: {
+        text: "Rate by Day"
+      },
+      xAxis: {
+        categories: [
+          <% @tankman.histories.limit(20).each do |name| %>
+            '<%= name.created_at.strftime("%B %e") %>',
+          <% end %>
+        ]
+      },
+      yAxis: {
+        title: {
+          text: "Rate"
+        }
+      },
+
+      series: [{
+          name: "<%= @tankman.name %>",
+          data: [
+           <% @tankman.histories.limit(20).each do |name| %>
+              <%= name.rate  %> ,
+           <% end %>
+          ]
+
+      }]
+    });
+  });
+</script>
+<div id="orders_chart" style="width:560px; height:300px;"></div>
+
+<h1>Listing tankmen's history</h1>
+ <%= will_paginate @history %>
+<table>
+  <tr>
+    <th>Date</th>
+    <th>Rate</th>
+  </tr>
+
+<% @tankman.histories.each do |h| %>
+  <tr>
+    <td><%= h.created_at.strftime("%B %e %Y, %H:%M") %></td>
+    <td><%= h.rate %></td>
+  </tr>
+<% end %>
+</table>
+
+ <%= will_paginate @history %>
+
+<%= link_to 'Back', tankmen_path %>

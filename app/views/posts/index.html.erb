@@ -1,0 +1,26 @@
+<h1>Listing posts</h1>
+   <% if auth %>
+<table>
+  <tr>
+    <th>Title</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @posts.each do |post| %>
+  <tr id="<%= post.id %>">
+    <td><%= link_to post.title, post %></td>
+    <% if auth %>
+    <td><%= link_to 'Edit', edit_post_path(post) if auth %></td>
+    <td><%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete, :remote => true if auth %></td>
+    <% end %>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Post', new_post_path %>
+<% else %>
+<h4>Недоступно для просмотра</h4>
+<% end %>

@@ -1,0 +1,14 @@
+
+ <% if auth %>
+<%= simple_form_for(@tankman) do |f| %>
+
+    <%= f.error_messages %>
+    <%= f.input :name %>
+    <%= f.association :post, :as => :radio %>
+    <%= f.input :rate %>
+    <%= f.button :submit %>
+
+<% end %>
+ <% else %>
+ <h4>Недоступно для просмотра</h4>
+ <% end %>

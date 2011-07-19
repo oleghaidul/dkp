@@ -1,0 +1,20 @@
+<header>
+  <%= link_to logo, root_path %>
+  <nav class="round1">
+    <ul>
+      <li><%= link_to "Home", root_path %></li>
+      <li><%= link_to "Tankmen", tankmen_path %></li>
+      <li><%= link_to "Statistics", '#' %></li>
+      <% if user_signed_in? %>
+      <li><%= current_user.email %> </li>
+      <li><%= link_to "Sign out", destroy_user_session_path %></li>
+      <% else %>
+      <li><%= link_to "Sign up", new_user_registration_path %></li>
+      <li><%= link_to "Sign in", new_user_session_path %></li>
+      <% end %>
+      <li>
+            <%= link_to 'New Tankman', new_tankman_path if auth %>
+          </li>
+    </ul>
+  </nav>
+</header>

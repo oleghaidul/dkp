@@ -1,0 +1,81 @@
+<h2 align="center"> Top 10</h2>
+<script type="text/javascript" charset="utf-8">
+  $(function() {
+    new Highcharts.Chart({
+      chart: {
+        renderTo: "orders_chart"
+      },
+      title: {
+        text: "Rate",
+          x: -60
+      },
+       xAxis: {
+         labels: {
+            align: 'left',
+            x: 3,
+            y: -3
+         }
+      },
+
+      yAxis: [{ // left y axis
+         title: {
+            text: null
+         },
+         labels: {
+            align: 'left',
+            x: 3,
+            y: 16,
+            formatter: function() {
+               return Highcharts.numberFormat(this.value, 0);
+            }
+         },
+         showFirstLabel: false
+      }, { // right y axis
+         linkedTo: 0,
+         gridLineWidth: 0,
+         opposite: true,
+         title: {
+            text: null
+         },
+         labels: {
+            align: 'right',
+            x: -3,
+            y: 16,
+            formatter: function() {
+               return Highcharts.numberFormat(this.value, 0);
+            }
+         },
+         showFirstLabel: false
+      }],
+      legend: {
+					layout: 'vertical',
+					align: 'right',
+					verticalAlign: 'top',
+                    x: 10,
+                    y: 50,
+					borderWidth: 0
+				},
+      tooltip: {
+					formatter: function() {
+			                return '<b>'+ this.series.name +'</b><br/>'+
+							'Rate : ' + this.y;
+					}
+				},
+
+
+      series: [
+         <% @tankman.each do |h| %>
+          {
+          name: "<%= h.name %>",
+          data: [
+          <% h.histories.limit(20).each do |hh| %>
+            <%= hh.rate %>,
+          <% end %>
+          ]
+      } ,
+          <% end %>
+      ]
+    });
+  });
+</script>
+<div id="orders_chart" style="width:630px; height:300px;"></div>

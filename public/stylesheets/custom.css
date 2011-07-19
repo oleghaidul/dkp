@@ -1,0 +1,160 @@
+.container {
+    width: 710px;
+}
+
+body {
+    background: #c0c0c0;
+}
+
+
+
+header {
+    padding-top: 10px;
+}
+
+/*header img {
+    padding: 1em;
+    background: #fff;
+} */
+
+section {
+    margin-top: 1em;
+    font-size: 120%;
+    padding: 20px;
+    background: #fff;
+}
+
+section h1 {
+    font-size: 200%;
+}
+
+/* Links */
+
+a {
+    color: #264409;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #529214;
+    text-decoration: underline;
+}
+
+a:visited {
+    color: #529214;
+}
+
+/* Navigation */
+
+
+nav {
+    background: white;
+    padding: 0 0.7em;
+    white-space: nowrap;
+    -moz-border-raduis: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    list-style-type: none;
+    display: inline-block;
+    padding: 0.5em 1.3em;
+}
+
+nav ul li a {
+    padding: 0 5px;
+    font-weight: bold;
+}
+
+nav ul li a:visited {
+    color: #052;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Round corners */
+
+.round {
+    background: white;
+    -moz-border-raduis: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+.round1 {
+
+}
+
+
+
+/* Footer */
+
+footer {
+    text-align: center;
+    margin-top: 10px;
+    width: 710px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+footer nav {
+    float: none;
+}
+
+table { border-collapse: collapse; width: 99%; }
+
+th.thead {
+    padding: 5px;
+    width: 60%;
+}
+
+/* Simple form */
+
+.simple_form label {
+  float: left;
+  width: 100px;
+  text-align: right;
+  margin: 2px 10px;
+}
+
+.simple_form div.input {
+  margin-bottom: 10px;
+}
+
+.simple_form div.boolean, .simple_form input[type='submit'] {
+  margin-left: 120px;
+}
+
+.simple_form div.boolean label, .simple_form label.collection_radio {
+  float: none;
+  margin: 0;
+}
+
+.simple_form label.collection_radio {
+  margin-right: 10px;
+  margin-left: 2px;
+}
+
+.simple_form .error {
+  clear: left;
+  margin-left: 120px;
+  font-size: 12px;
+  color: #D00;
+  display: block;
+}
+
+.simple_form .hint {
+  clear: left;
+  margin-left: 120px;
+  font-size: 12px;
+  color: #555;
+  display: block;
+  font-style: italic;
+}
