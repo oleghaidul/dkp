@@ -9,12 +9,19 @@ class PagesController < ApplicationController
     @history = History.where(:tankman_id => @tankman)
   end
 
-  def stat
-    @title = "Statistics"
-  end
-
   def tankmen
     @title = "Tankmen"
+  end
+
+  def awards
+
+  end
+
+  def calc
+    @title = "Calc"
+     @tankmen = Tankman.all
+     @rate_sum = Tankman.sum :rate
+     @gold = params[:gold]
   end
 
 end

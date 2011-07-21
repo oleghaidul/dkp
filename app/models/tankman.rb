@@ -10,6 +10,8 @@ class Tankman < ActiveRecord::Base
     end
   end
 
+
+
   validates_presence_of :name, :rate
 
 

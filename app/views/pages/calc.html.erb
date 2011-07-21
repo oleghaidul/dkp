@@ -1,0 +1,27 @@
+<h4>Gold: </h4>
+ <%= form_tag :controller => 'pages', :action => 'calc', :method => 'get' do %>
+      <%= text_field_tag :gold, params[:gold], :id => 'gold_field' %>
+      <%= submit_tag "Calculate", :name => nil %>
+ <% end %>
+
+<table>
+  <tr>
+    <th class="thead">Name</th>
+    <th>Post</th>
+    <th>-1</th>
+    <th>Rate</th>
+    <th>Gold</th>
+    <th>+1</th>
+  </tr>
+
+<% @tankmen.each do |tankman| %>
+  <tr>
+    <td><%= link_to tankman.name, tankman %></td>
+    <td><%= link_to tankman.post.title, tankman.post %></td>
+    <td><%= link_to image_tag("b1.png", :size => '15x4'),{:controller => :tankmen, :action => :decrement, :id => tankman.id}, :remote => true if auth %></td>
+    <td><%= tankman.rate %></td>
+    <th><%= (tankman.rate.to_f/@rate_sum.to_f*@gold.to_f).to_i %></th>
+    <td><%= link_to image_tag("b2.png", :size => '15x15'),{:controller => :tankmen, :action => :increment, :id => tankman.id}, :remote => true if auth %></td>
+  </tr>
+<% end %>
+</table>

@@ -4,7 +4,8 @@
     <ul>
       <li><%= link_to "Home", root_path %></li>
       <li><%= link_to "Tankmen", tankmen_path %></li>
-      <li><%= link_to "Statistics", '#' %></li>
+      <li><%= link_to "Calc", calc_path %></li>
+      <li><%= link_to "Awards", awards_path %></li>
       <% if user_signed_in? %>
       <li><%= current_user.email %> </li>
       <li><%= link_to "Sign out", destroy_user_session_path %></li>

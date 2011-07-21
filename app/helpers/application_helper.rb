@@ -1,7 +1,7 @@
 module ApplicationHelper
 
   def title
-    default_title = "DKP"
+    default_title = "TAP"
     if @title.nil?
       default_title
     else

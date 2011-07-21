@@ -10,10 +10,11 @@ Dkp::Application.routes.draw do
   get "pages/stat"
 
   match '/signup', :to => 'users#new'
-  match '/statistics', :to => 'pages#stat'
+  match '/calc', :to => 'pages#calc'
   match '/tankmen', :to => 'pages#tankmen'
   match '/incr', :to => 'tankmen#incr'
   match '/decr', :to => 'tankmen#incr'
+  match 'awards', :to => 'pages#awards'
 
   devise_for :users
 
